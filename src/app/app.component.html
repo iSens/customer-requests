@@ -1,11 +1,52 @@
 <h1>{{ title }}</h1>
 
-<ul *ngFor="let customer_request of customer_requests">
-  <li>{{ customer_request.customer_name }}</li>
-  <li>{{ customer_request.customer_phone }}</li>
-  <li>{{ customer_request.brand }}</li>
-  <li>{{ customer_request.notes }}</li>
-  <li>{{ customer_request.status }}</li>
-  <li>{{ customer_request.deposit }}</li>
-</ul>
+<!--  ul *ngFor="let client of clients">
+  <li>{{ client.customer_name }}</li>
+  <li>{{ client.customer_phone }}</li>
+  <li>{{ client.brand }}</li>
+  <li>{{ client.notes }}</li>
+  <li>{{ client.status }}</li>
+  <li>{{ client.deposit }}</li>
+</ul -->
 
+<mat-table #table [dataSource]="clients" >
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.created_at | date: 'MMM d, y'}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="customerName">
+    <mat-header-cell *matHeaderCellDef> Customer Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.customer_name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="customerPhone">
+    <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.customer_phone}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.brand}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="notes">
+    <mat-header-cell *matHeaderCellDef> Notes </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.notes}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="deposit">
+    <mat-header-cell *matHeaderCellDef> Deposit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.deposit}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+</mat-table>

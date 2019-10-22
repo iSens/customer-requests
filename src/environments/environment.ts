@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'https://kkw-customer-requests.herokuapp.com/',
+  serverUrl: 'https://kkw-customer-requests.herokuapp.com/customer_requests',
 
 };
 

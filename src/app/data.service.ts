@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import {  throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  serverUrl = environment.serverUrl;
 
-  private REST_API_SERVER = this.serverUrl + 'customer_requests.json';
+  private serverUrl = environment.serverUrl;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,8 +26,12 @@ export class DataService {
     return throwError(errorMessage);
   }
 
-  public sendGetRequest(){
-    return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
-  
-  }
+  getClients(){    
+    return this.httpClient.get(this.serverUrl + '.json')
+   }
+
+   getDetails(clientId){
+    return this.httpClient.get(`${this.serverUrl}/${clientId + '.json'}`) 
+   }
+
 }

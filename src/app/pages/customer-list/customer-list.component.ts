@@ -4,11 +4,10 @@ import { takeUntil } from 'rxjs/operators';
 import { DataService } from 'src/app/data.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.css']
+  styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
 
@@ -19,6 +18,7 @@ export class CustomerListComponent implements OnInit {
   notes: string;
   status: string;
   deposit: string;
+  action: string;
 
   title = 'Customer Requests';
 
@@ -26,7 +26,11 @@ export class CustomerListComponent implements OnInit {
   
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(
+    private dataService: DataService, 
+    private route: ActivatedRoute) {
+
+    }
 
   ngOnInit() {
 
@@ -36,14 +40,15 @@ export class CustomerListComponent implements OnInit {
 
     })      
   }
+
   ngOnDestroy() {
     this.destroy$.next(true);
     // Unsubscribe from the subject
     this.destroy$.unsubscribe();
   }
-  displayedColumns: string[] = ['date', 'customerName', 'customerPhone', 'brand', 'notes', 'status', 'deposit'];
-  
 
+  displayedColumns: string[] = ['date', 'customerName', 'customerPhone', 'brand', 'notes', 'status', 'deposit', 'action'];
+  
 }
 
 

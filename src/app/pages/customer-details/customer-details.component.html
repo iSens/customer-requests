@@ -1,8 +1,21 @@
-<ul>
-  <li>Customer Name: {{ clientDetails.customer_name }}</li>
-  <li>Phone Number: {{clientDetails.customer_phone }}</li>
-  <li>Brand: {{ clientDetails.brand }}</li>
-  <li>Notes: {{ clientDetails.notes }}</li>
-  <li>Status:  {{ clientDetails.status }}</li>
-  <li>Deposit: {{ clientDetails.deposit.WithCertification == true ? "Yes" : "No" }}</li>
-</ul>
+<mat-list role="list">
+  <mat-list-item role="listitem">Customer Name: {{ clientDetails.customer_name }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item role="listitem">Phone Number: {{clientDetails.customer_phone }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item role="listitem">Brand: {{ clientDetails.brand }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item role="listitem">Notes: {{ clientDetails.notes }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item role="listitem">Status:  {{ clientDetails.status }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item role="listitem">Deposit: {{ clientDetails.deposit.WithCertification == true ? "Yes" : "No" }}</mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>
+<button mat-flat-button color="primary" (click)="backClicked()">Back</button>

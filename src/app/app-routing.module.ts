@@ -8,8 +8,8 @@ import { CustomerUpdateComponent } from './pages/customer-update/customer-update
 
 
 const routes: Routes = [
-  { path:  '', pathMatch:  'full', redirectTo:  'list'},
-  { path: 'list', component: CustomerListComponent},
+  { path:  '', pathMatch:  'full', redirectTo:  'customer-requests'},
+  { path: 'customer-requests', component: CustomerListComponent},
   { path: 'details/:id', component: CustomerDetailsComponent},
   { path: 'create', component: CustomerCreateComponent},
   { path: 'update', component: CustomerUpdateComponent},  

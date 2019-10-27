@@ -34,9 +34,16 @@
     <ng-container matColumnDef="deposit">
       <mat-header-cell *matHeaderCellDef> Deposit </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.deposit.WithCertification == true ? "Yes" : "No"}} <br />
-        <a [routerLink]="['/details', element.id]">Details</a>
       </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a mat-flat-button color="primary" [routerLink]="['/details', element.id]">View</a>
+      </mat-cell>
+    </ng-container>
+
   
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;">

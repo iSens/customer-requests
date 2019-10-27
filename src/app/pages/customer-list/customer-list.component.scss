@@ -1,0 +1,20 @@
+.mat-column {
+    &-date,
+    &-customerPhone,
+    &-status,
+    &-deposit,
+    &-action {
+        flex: .5;
+    }
+    &-customerName,
+    &-brand {
+        flex: .7;
+    }
+    &-action {
+        justify-content: flex-end;
+        text-align: right;
+    }
+    &-notes {
+        flex: 2.5;
+    }
+}
